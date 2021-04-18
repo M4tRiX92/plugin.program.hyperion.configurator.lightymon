@@ -27,7 +27,7 @@ line3 = "You must complete all steps to have the config file generated. Let\'s s
 xbmcgui.Dialog().ok(addonname, line1, line2 + line3)
 
 try:
-    updater=AddonGithubUpdater.AddonGithubUpdater(addon_dir,"M4tRiX92","Lightymon")
+    updater=AddonGithubUpdater.AddonGithubUpdater(addon_dir,"M4tRiX92"," plugin.program.hyperion.configurator.lightymon")
     if updater.isUpdateAvailable():
         if xbmcgui.Dialog().yesno(addonname, "Plugin update is available. Do you want to install new version?"):
             updater.installUpdate()
