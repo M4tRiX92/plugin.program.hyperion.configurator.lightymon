@@ -19,8 +19,8 @@ class AddonGithubUpdater:
 		local=f.readlines()[-1]
 		f.close()
 		try:
-			remote=urllib2.urlopen("https://raw.githubusercontent.com/"+self.githubOrg+"/"+self.githubRepo+"/master/changelog.txt").readlines()[-1]
-		except Exception, e:
+			remote=urllib2.urlopen("https://raw.githubusercontent.com/"+self.githubOrg+"/"+self.githubRepo+"/blob/main/changelog.txt").readlines()[-1]
+        except Exception, e:
 			pDialog.close()
 			return false
 		pDialog.close()
@@ -32,7 +32,7 @@ class AddonGithubUpdater:
 		pDialog = xbmcgui.DialogProgress()
 		pDialog.create('Updater..', 'Please wait... Installing update...')
 		f=open(download_path,"w")
-		f.write(urllib2.urlopen("https://github.com/"+self.githubOrg+"/"+self.githubRepo+"/archive/master.zip").read())
+		f.write(urllib2.urlopen("https://github.com/"+self.githubOrg+"/"+self.githubRepo+"/archive/main.zip").read())
 		f.close()
 		subprocess.call(["unzip","-o",download_path,"-d",self.addonParentFolder])
 		pDialog.close()
