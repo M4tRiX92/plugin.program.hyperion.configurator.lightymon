@@ -2,3 +2,4 @@
 1.0.1 Small Bugfixes (Auto-Update)
 1.0.2 Installation fixed
 1.0.3 Fixed PopUpMessages
+1.0.4 Updated Icon.png
