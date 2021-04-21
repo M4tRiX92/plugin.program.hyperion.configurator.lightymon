@@ -24,7 +24,13 @@ class AddonGithubUpdater:
 			pDialog.close()
 			return False
 		pDialog.close()
-		return local!=remote
+		if remote!=local:
+			xbmcgui.Dialog().ok("Lightymon", "New version found!", "Remote: " + remote, "Local: " + local)
+			return True
+		else:
+			xbmcgui.Dialog().ok("Lightymon", "No new version found!", "Remote: " + remote, "Local: " + local)
+			return False
+		#return local!=remote
 		
 	def installUpdate(self):
 		download_path=os.path.expanduser("~/update_plugin.zip")
@@ -34,4 +40,6 @@ class AddonGithubUpdater:
 		f.write(urllib2.urlopen("https://github.com/"+self.githubOrg+"/"+self.githubRepo+"/archive/main.zip").read())
 		f.close()
 		subprocess.call(["unzip","-o",download_path,"-d",self.addonParentFolder])
+		#Debug
+		#xbmcgui.Dialog().ok("Lightymon", self.addonParentFolder)
 		pDialog.close()
