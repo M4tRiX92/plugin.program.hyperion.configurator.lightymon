@@ -19,12 +19,11 @@ class AddonGithubUpdater:
 		local=f.readlines()[-1]
 		f.close()
 		try:
-			remote=urllib2.urlopen("https://raw.githubusercontent.com/"+self.githubOrg+"/"+self.githubRepo+"/blob/main/changelog.txt").readlines()[-1]
-        except Exception, e:
+			remote=urllib2.urlopen("https://raw.githubusercontent.com/"+self.githubOrg+"/"+self.githubRepo+"/main/changelog.txt").readlines()[-1]
+		except Exception, e:
 			pDialog.close()
-			return false
+			return False
 		pDialog.close()
-		#xbmcgui.Dialog().ok("test", local, remote)
 		return local!=remote
 		
 	def installUpdate(self):
@@ -36,6 +35,3 @@ class AddonGithubUpdater:
 		f.close()
 		subprocess.call(["unzip","-o",download_path,"-d",self.addonParentFolder])
 		pDialog.close()
-
-		
-		

@@ -26,15 +26,18 @@ line2 = "We are about to prepare your hyperion config file in this step-by-step 
 line3 = "You must complete all steps to have the config file generated. Let\'s start!"
 xbmcgui.Dialog().ok(addonname, line1, line2 + line3)
 
+
 try:
-    updater=AddonGithubUpdater.AddonGithubUpdater(addon_dir,"M4tRiX92"," plugin.program.hyperion.configurator.lightymon")
+    updater=AddonGithubUpdater.AddonGithubUpdater(addon_dir,"M4tRiX92","plugin.program.hyperion.configurator.lightymon")
     if updater.isUpdateAvailable():
         if xbmcgui.Dialog().yesno(addonname, "Plugin update is available. Do you want to install new version?"):
             updater.installUpdate()
             xbmcgui.Dialog().ok(addonname, "Update installed. Please restart plugin")
             sys.exit()
 except Exception, e:
-    xbmcgui.Dialog().ok(addonname, "Failed to check the update. Maybe your Pi is not connected to the Internet")
+       xbmcgui.Dialog().ok(addonname, repr(e),"Please report an error at github issue list")
+   # xbmcgui.Dialog().ok(addonname, "Failed to check the update. Maybe your Pi is not connected to the Internet")
+
 
 #check if hyperion is installed, if not, install the newest version
 if not HyperPyCon.HyperPyCon.isHyperionInstalled():
