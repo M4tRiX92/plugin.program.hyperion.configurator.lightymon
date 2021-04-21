@@ -28,7 +28,7 @@ class AddonGithubUpdater:
 			xbmcgui.Dialog().ok("Lightymon", "New version found!", "Remote: " + remote, "Local: " + local)
 			return True
 		else:
-			xbmcgui.Dialog().ok("Lightymon", "No new version found!", "Remote: " + remote, "Local: " + local)
+			#xbmcgui.Dialog().ok("Lightymon", "No new version found!", "Remote: " + remote, "Local: " + local)
 			return False
 		#return local!=remote
 		

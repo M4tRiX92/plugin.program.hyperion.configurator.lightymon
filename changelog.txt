@@ -1,3 +1,4 @@
 1.0.0 Initial Release
 1.0.1 Small Bugfixes (Auto-Update)
 1.0.2 Installation fixed
+1.0.3 Fixed PopUpMessages
