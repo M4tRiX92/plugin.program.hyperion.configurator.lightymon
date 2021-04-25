@@ -16,7 +16,7 @@ class Led:
 
 	
 	def printRaw(self):
-		print "led [" , self.position , "] - (" , self.x_start , " , " , self.x_end , ") , Y(", self.y_start , " , " , self.y_end , ")"
+		print ("led [" , self.position , "] - (" , self.x_start , " , " , self.x_end , ") , Y(", self.y_start , " , " , self.y_end , ")")
 	
 	def hscan_to_dict(self):
 		"""returns dictionary for horizontal coordinates"""

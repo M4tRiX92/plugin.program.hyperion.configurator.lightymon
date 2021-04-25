@@ -20,7 +20,7 @@ class AddonGithubUpdater:
 		f.close()
 		try:
 			remote=urllib2.urlopen("https://raw.githubusercontent.com/"+self.githubOrg+"/"+self.githubRepo+"/main/changelog.txt").readlines()[-1]
-		except Exception, e:
+		except Exception as e:
 			pDialog.close()
 			return False
 		pDialog.close()

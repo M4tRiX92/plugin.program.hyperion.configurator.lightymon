@@ -34,7 +34,7 @@ try:
             updater.installUpdate()
             xbmcgui.Dialog().ok(addonname, "Update installed. Please restart plugin")
             sys.exit()
-except Exception, e:
+except Exception as e:
        xbmcgui.Dialog().ok(addonname, repr(e),"Please report an error at github issue list")
    # xbmcgui.Dialog().ok(addonname, "Failed to check the update. Maybe your Pi is not connected to the Internet")
 
@@ -68,7 +68,7 @@ try:
         subprocess.call(["lsusb"])
         subprocess.call(["killall", "-help"])
 
-except Exception, e:
+except Exception as e:
     if xbmcgui.Dialog().yesno(addonname, "You must have killall and lsusb utilities installed on OSMC. Select Yes to have them installed. No will exit the wizard."):
         pDialog = xbmcgui.DialogProgress()
         pDialog.create('Installing...', 'Please wait... it can take few minutes...')
@@ -193,7 +193,7 @@ try:
 
     xbmcgui.Dialog().ok(addonname, "That\'s all Folks! :) . Enjoy!", "If you'd like to fine tune advanced parameters, please modify addon settings before running it","You may need to restart your system...")
 
-except Exception, e:
+except Exception as e:
         xbmcgui.Dialog().ok(addonname, repr(e),"Please report an error at github issue list")
 
 

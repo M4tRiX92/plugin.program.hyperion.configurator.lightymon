@@ -147,9 +147,10 @@ class HyperPyCon:
 
     def save_config_file(self,content,file_path):
         self.config_file_path = file_path
-        f = open(file_path,"w", 0777)
+        f = open(file_path,"w")
         f.write(content)
         f.close()
+        os.chmod(file_path, 0o777)
 
     def overwrite_default_config(self):
         if os.path.isdir("/storage/.config"):
