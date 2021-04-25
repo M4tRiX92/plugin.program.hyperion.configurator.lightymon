@@ -1,1 +1,6 @@
 1.0.0 Initial Release
+1.0.1 Fix
+1.0.2 Icon.png Update
+1.0.3 Messages-Fix
+1.0.4 Flask implement / not productive yet
+1.0.5 Preparations for python 3 (KODI 19)
