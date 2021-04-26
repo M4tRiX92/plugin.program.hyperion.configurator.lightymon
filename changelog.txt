@@ -5,6 +5,3 @@
 1.0.4 Flask implement / not productive yet
 1.0.5 Preparations for python 3 (KODI 19)
 1.0.6 added flask files
-1.0.7 deactivated Debug mode due bug
-1.0.8 changed flask IP address to 0.0.0.0
-1.0.9 added forms
