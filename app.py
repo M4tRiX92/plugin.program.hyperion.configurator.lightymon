@@ -8,11 +8,11 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    ledv = request.form['ledv']
-    ledh = request.form['ledh']
+    ledv = request.form['ledh']
+    ledh = request.form['ledv']
     ledoption = request.form['index_option']
     processed_text = text.upper()
-    return 'You entered: {}'.format(request.form['ledv'])
+    return 'You entered: {}'.format(request.form['ledh'])
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=False)
