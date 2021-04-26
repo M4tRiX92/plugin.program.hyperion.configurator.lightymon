@@ -3,11 +3,13 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return render_template('form.html')
+def my_form():
+    return render_template('my-form.html')
 
-@app.route('/submit', methods=['POST'])
-def submit():
+@app.route('/', methods=['POST'])
+def my_form_post():
+    text = request.form['text']
+    processed_text = text.upper()
     return 'You entered: {}'.format(request.form['text'])
 
 if __name__ == '__main__':
