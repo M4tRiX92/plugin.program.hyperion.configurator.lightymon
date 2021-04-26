@@ -1,4 +1,17 @@
 <form method="POST">
-    <input name="text">
-    <input type="submit">
+	<label for="ledv">Select number of leds horizontally:</label>
+    <input name="ledv"><br><br>
+    <label for="ledh">Select number of leds vertically:</label>
+    <input name="ledh"><br><br>
+    
+    <label>Select where the led chain starts:
+      <select name="index_option" size="4">
+        <option>Right/bottom corner and goes up</option>
+        <option>Left/bottom corner and goes up</option>
+        <option>Center/bottom and goes right</option>
+        <option>Center/bottom and goes left</option>
+      </select>
+ 	</label>
+    <br><br>
+    <input type="submit" value="Submit">
 </form>
