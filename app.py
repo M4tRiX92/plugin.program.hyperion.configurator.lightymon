@@ -3,14 +3,20 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 @app.route('/')
+def hello_Lightymon():
+    return 'Welcome to Lightymon!'
+
+@app.route('/setleds')
 def my_form():
     return render_template('form.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/setleds', methods=['POST'])
 def my_form_post():
-    text = request.form['ledv']
-    processed_text = text.upper()
-    print(processed_text)
+    ledv = request.form['ledv']
+    ledh = request.form['ledh']
+    options = request.form['options']
+    processed_text = ledv.upper()
+    print("ledv " + ledv + " - ledh " + ledh + " - option " +options)
     return processed_text
 
 if __name__ == '__main__':
