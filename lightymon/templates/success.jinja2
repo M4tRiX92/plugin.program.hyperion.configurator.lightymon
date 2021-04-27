@@ -1,0 +1,23 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/success.css') }}"
+        type="text/css"
+    />
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="success-wrapper">
+      <h1>SUCCESS!</h1>
+      <p>You've set the LEDs for your Lightymon instance!</p>
+      <a href="{{ url_for('home') }}">
+          <button>Start over</button>
+      </a>
+    </div>
+
+{% endblock %}
