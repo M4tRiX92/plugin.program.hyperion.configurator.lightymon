@@ -11,7 +11,7 @@ def my_form_post():
     ledv = request.form['ledh']
     ledh = request.form['ledv']
     ledoption = request.form['index_option']
-    processed_text = text.upper()
+    #processed_text = text.upper()
     return 'You entered: {}'.format(request.form['ledh'])
 
 if __name__ == '__main__':

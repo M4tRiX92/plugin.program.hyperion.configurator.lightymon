@@ -1,17 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
 <form method="POST">
-	<label for="ledh">Select number of leds horizontally:</label>
-    <input type="text" id="ledh" name="ledh"><br><br>
-    <label for="ledv">Select number of leds vertically:</label>
-    <input type="text" id="ledv"  name="ledv"><br><br>
-    
-    <label>Select where the led chain starts:
-      <select name="index_option" size="4">
-        <option>Right/bottom corner and goes up</option>
-        <option>Left/bottom corner and goes up</option>
-        <option>Center/bottom and goes right</option>
-        <option>Center/bottom and goes left</option>
-      </select>
- 	</label>
-    <br><br>
-    <input type="submit" value="Submit">
-</form>
+  <label for="ledh">Select number of leds horizontally:</label><br>
+  <input type="text" id="ledh" name="ledh" value="26"><br>
+  <label for="ledv">Select number of leds vertically:</label><br>
+  <input type="text" id="ledv" name="ledv" value="16"><br><br>
+  <label for="options">Select where the led chain starts:</label>
+  <select id="options" name="options">
+    <option value="right">Right/bottom corner and goes up</option>
+    <option value="left">Left/bottom corner and goes up</option>
+    <option value="center_right">Center/bottom and goes right</option>
+    <option value="center_left">Center/bottom and goes left</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+</body>
+</html>
