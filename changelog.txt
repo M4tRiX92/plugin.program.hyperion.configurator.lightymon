@@ -4,4 +4,4 @@
 1.0.3 Messages-Fix
 1.0.4 Flask implement / not productive yet
 1.0.5 Preparations for python 3 (KODI 19)
-1.0.6 added flask files and form.html
+1.0.6 added flask files and form.html -

@@ -4,18 +4,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_form():
-    return render_template('form.html')
+    return render_template('my-form.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def my_form_post():
-    ledv = request.form['ledh']
-    ledh = request.form['ledv']
-    ledoption = request.form['index_option']
-    #processed_text = text.upper()
-    print("ledv" + ledv)
-    print("ledh" + ledh)
-    print("Option" + ledoption)
-    return 'Good'
+    text = request.form['ledv']
+    processed_text = text.upper()
+    print(processed_text)
+    return processed_text
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=False)
