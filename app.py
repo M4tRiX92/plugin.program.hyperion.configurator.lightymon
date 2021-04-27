@@ -15,8 +15,7 @@ def my_form_post():
     ledv = request.form['ledv']
     ledh = request.form['ledh']
     options = request.form['options']
-    processed_text = ledv.upper()
-    print("ledv " + ledv + " - ledh " + ledh + " - option " +options)
+    processed_text = "ledv " + ledv + " - ledh " + ledh + " - option " + options
     return processed_text
 
 if __name__ == '__main__':
