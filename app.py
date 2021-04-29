@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template
-from addon_new import setEverything
 
 app = Flask(__name__)
 
@@ -15,9 +14,11 @@ def my_form():
 def my_form_post():
     ledv = request.form['ledv']
     ledh = request.form['ledh']
-    options = request.form['options']
-    processed_text = "ledv " + ledv + " - ledh " + ledh + " - option " + options
-    setEverything(ledh, ledv, options)
+    direction = request.form['direction']
+    device = request.form['device']
+    center_corner = request.form['center_corner']
+    processed_text = "ledv " + ledv + " - ledh " + ledh + " - direction " + direction + " - device " + device + " - center_corner " + center_corner
+    #setEverything(ledh, ledv, options)
     return processed_text
 
 if __name__ == '__main__':

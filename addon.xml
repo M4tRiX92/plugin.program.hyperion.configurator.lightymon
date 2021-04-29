@@ -5,8 +5,8 @@
 		<import addon="xbmc.json" version="6.0.0"/>
     	<import addon="xbmc.webinterface" version="1.0.0"/>
 	</requires>
-	<extension point="xbmc.webinterface" type="wsgi" library="app.py" entry="app"/>
-	<extension point="xbmc.python.pluginsource" library="addon_new.py">
+	<extension point="xbmc.webinterface" type="wsgi" library="app.py" entry="app" start="startup"/>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
 	</extension>
 	<extension point="xbmc.addon.metadata">
