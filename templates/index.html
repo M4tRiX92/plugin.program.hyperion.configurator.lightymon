@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
-  margin: 0;
+  margin: 1em auto;
   width: 100%;
   height: 100vh;
-    text-align: center;
+  text-align: center;
   font-family: sans-serif;
   /*background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);*/
   color: #fff;
   background: linear-gradient(-55deg, #1424fa, #545ff7, #99f2c8, #1f4037, #ff4800, #eb302d);
-  background-size: 400% 400%;
-  -webkit-animation: gradientBackground 10s ease infinite;
-          animation: gradientBackground 10s ease infinite;
+  background-size: 500% 500%;
+  -webkit-animation: gradientBackground 40s ease infinite;
+          animation: gradientBackground 40s ease infinite;
 }
 .container {
   width: 100%;
@@ -24,12 +25,12 @@ body {
 h1 {
   font-weight: 900;
   font-family: sans-serif;
-  font-size: 30px;
+  font-size: 3em;
 }
 p{
   text-align: justify;
   position: absolute;
-  line-height: 30px;
+  line-height: 1.3em;
   left: 15%;
   right: 15%;
  
@@ -62,15 +63,13 @@ a {
 }
 
 
-
-
 /* class applies to select element itself, not a wrapper element */
 .select-css {
-  font-size: 12px;
+  font-size: 1em;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;
-  line-height: 1.3;
+  line-height: 1.3em;
   padding: .6em 1.4em .5em .8em;
   max-width: 100%; /* useful when width is set to anything other than 100% */
   box-sizing: border-box;
@@ -135,11 +134,11 @@ a {
 }
 
 .advancedTextfield {
-  font-size: 12px;
+  font-size: 1em;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;
-  line-height: 1.3;
+  line-height: 1.3em;
   padding: .6em 1.4em .5em .8em;
   max-width: 100%; /* useful when width is set to anything other than 100% */
   box-sizing: border-box;
@@ -160,11 +159,11 @@ a {
      outline:none;
 }
 .button {
-  font-size: 20px;
+  font-size: 2em;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;
-  line-height: 1.3;
+  line-height: 1.3em;
   padding: .6em 1.4em .5em .8em;
   max-width: 100%; /* useful when width is set to anything other than 100% */
   box-sizing: border-box;
@@ -210,64 +209,9 @@ a {
 </noscript>
 </head>
 <body>
-<div id="grad1" style="text-align:center;margin:auto;color:#FFFFFF;font-size:40px;font-weight:bold">
-	<h2>Set LEDs for Lightymon</h2>
-</div>
-
+<h1>Lightymon</h1>
 	<form method="POST">
-	<br>
-	<!-- device -->
-	<!-- Dropdownfield for LED device type-->
-		<div id="div_device">
-			<label for="device">Select your LED device:</label>
-			<br>
-			<select class="select-css" id="device" name="device">
-				<option value="adalightapa102">Lightymon USB (apa102)</option>
-				<option value="adalight">Lightymon USB (ws2801)</option>
-				<option value="ws2801">ws2801</option>
-				<option value="apa102">apa102</option>
-				<option value="lightymonXL">lightymonXL</option>
-			</select>
-		</div>
-		<br>
-		<br>
-		<!-- ledh -->
-		<!-- Number of LEDS horizontally-->
-		<div id="div_ledh">
-			<label for="ledh">Select number of LEDs horizontally:</label><br>
-			<input id="ledh" class="advancedTextfield" name="ledh" type="number" value="26">
-		</div>
-		<br>
-		<!-- ledv -->
-		<!-- Number of LEDS vertically -->
-		<div id="div_ledv">
-			<label for="ledv">Select number of LEDs vertically:</label><br>
-			<input id="ledv" class="advancedTextfield" name="ledv" type="number" value="16">
-		</div>
-		<br><br>
-		<!-- direction -->
-		<!-- Dropdownfield for Direction -->
-		<div id="div_direction">
-			<label for="direction">Select where the LED chain starts:</label>
-			<br>
-			<select class="select-css" id="direction" name="direction">
-				<option value="right">Right/bottom corner and goes up</option>
-				<option value="left">Left/bottom corner and goes up</option>
-				<option value="center_right">Center/bottom and goes right</option>
-				<option value="center_left">Center/bottom and goes left</option>
-			</select>
-		</div>
-		<br><br>
-		<!-- center_corner -->
-		<!-- Only Visible when center_right or center_left is selected -->
-		<!-- Is the offset of the LEDs from the center to the right/left corner -->
-		<div id="div_center_corner" style="display: none">
-			<label for="center_corner">How many LED from the center to the corner or the screen?</label><br>
-			<input id="center_corner" class="advancedTextfield" name="center_corner" type="number" value="13">
-			<br><br>
-		</div>
-		
-		<input type="submit" class="button" value="  Submit">
+	  <p><a href="{{ url_for('setleds') }}">To set the LED configuration 'click here'</a></p>
 	</form> 
 </body>
 </html>
