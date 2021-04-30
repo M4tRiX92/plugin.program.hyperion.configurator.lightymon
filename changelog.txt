@@ -6,4 +6,5 @@
 1.0.5 Preparations for python 3 (KODI 19)
 1.0.6 added flask files and modified form.html
 1.0.7 complete new webinterface design and icon
+1.0.8 added startup
 
