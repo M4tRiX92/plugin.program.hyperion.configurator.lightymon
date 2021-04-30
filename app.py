@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template
-from addon import 
 
 app = Flask(__name__)
 
@@ -13,7 +12,7 @@ def my_form():
 
 @app.route('/setleds', methods=['GET', 'POST'])
 def my_form_post():
-if request.method == 'POST':
+    if request.method == 'POST':
         # do stuff when the form is submitted
         # redirect to end the POST handling
         # the redirect can be to the same route or somewhere else
