@@ -7,3 +7,4 @@
 1.0.6 added flask files and modified form.html
 1.0.7 complete new webinterface design and icon
 1.0.8 exported flask to own plugin
+1.0.9 Function implemented
