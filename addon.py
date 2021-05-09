@@ -21,8 +21,6 @@ gpio_version=False
 import HyperPyCon
 import AddonGithubUpdater
 
-myfunction()
-
 def myfunction(device, ledh, ledv, direction, center_corner = None):
     line1 = "Welcome!"
     line2 = "We are about to prepare your hyperion config file in this step-by-step wizard."
@@ -251,3 +249,4 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
      
     except Exception as e:
             xbmcgui.Dialog().ok(addonname, repr(e),"Please report an error at github issue list")
+myfunction()
