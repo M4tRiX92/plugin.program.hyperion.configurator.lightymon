@@ -21,11 +21,11 @@ gpio_version=False
 import HyperPyCon
 import AddonGithubUpdater
 
-def myfunction(device, ledh, ledv, direction, center_corner = None):
+def myfunction(device = None, ledh = None, ledv = None, direction = None, center_corner = None):
     line1 = "Welcome!"
     line2 = "We are about to prepare your hyperion config file in this step-by-step wizard."
     line3 = "You must complete all steps to have the config file generated. Let\'s start!"
-    if center_corner is not None:
+    if center_corner is None:
         xbmcgui.Dialog().ok(addonname, line1, line2 + line3)
     else:
         #webseite
@@ -33,7 +33,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
 
 
     try:
-        if center_corner is not None:
+        if center_corner is None:
             updater=AddonGithubUpdater.AddonGithubUpdater(addon_dir,"M4tRiX92","plugin.program.hyperion.configurator.lightymon")
             if updater.isUpdateAvailable():
                 if xbmcgui.Dialog().yesno(addonname, "Plugin update is available. Do you want to install new version?"):
@@ -93,7 +93,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
 
 
     try:
-        if center_corner is not None:
+        if center_corner is None:
             if HyperPyCon.HyperPyCon.amIonWetek() :
                 device_versions = [ HyperPyCon.HyperPyCon.adalightapa102 , HyperPyCon.HyperPyCon.adalight , HyperPyCon.HyperPyCon.lightymonXL ]
             else:
@@ -104,7 +104,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
         if selected_device == -1:
             sys.exit();
         if selected_device == 2 or selected_device == 3:
-            if center_corner is not None:
+            if center_corner is None:
                 if "spidev" not in subprocess.check_output(['ls','/dev']):
                     xbmcgui.Dialog().ok(addonname, "We have detected that your system does not have spi enabled. You can " +
                                                 "still continue, but leds may not work if you're using GPIO/SPI connection")
@@ -120,7 +120,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
         else:
             suffix = "ws2801"
 
-        if center_corner is not None:
+        if center_corner is None:
             xbmcgui.Dialog().ok(addonname, "In next two steps please provide number of leds at the top edge of" +
                                 "  tv (horizontally) and number of leds at the side of your tv " +
                                 "(count leds at single side only) - horizontally")
@@ -156,7 +156,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
         hyperion_configuration.set_grabber_signal_off(addon.getSetting("colorWhenSourceIsOff"))
         hyperion_configuration.set_grabber_priority(int(float(addon.getSetting("grabberPriority"))))
 
-        if center_corner is not None:
+        if center_corner is None:
             options = ["Right/bottom corner and goes up","Left/bottom corner and goes up","Center/bottom and goes right","Center/bottom and goes left"]
             selected_index = xbmcgui.Dialog().select("Select where the led chain starts:",options)
         else:
@@ -165,7 +165,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
             hyperion_configuration.led_chain.reverse_direction()
             hyperion_configuration.led_chain.set_offset(int(nol_horizontal))
         elif selected_index == 2 or selected_index == 3:
-            if center_corner is not None:
+            if center_corner is None:
                 offset = xbmcgui.Dialog().input("How many leds from the center to the corner or the screen?","15",xbmcgui.INPUT_NUMERIC)
             else:
                 offset = center_corner
@@ -190,7 +190,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
             if grabber != "":
                 if "video0" in subprocess.check_output(['ls','/dev']):
                     message = "Compatible video grabber has been detected. Do you want to enable video grabber in hyperion?"
-                    if center_corner is not None:
+                    if center_corner is None:
                         if xbmcgui.Dialog().yesno(addonname, message):
                             hyperion_configuration.config_grabber(grabber)
                     else:
@@ -198,7 +198,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
                         hyperion_configuration.config_grabber(grabber)
                 else:
                     message = "Video grabber has been detected but video0 does not exist. Please install drivers or use different disto"
-                    if center_corner is not None:
+                    if center_corner is None:
                         xbmcgui.Dialog().ok(addonname, message)
                     else:
                         #webseite
@@ -206,13 +206,13 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
                         return message
             else:
                 message = "We have not detected the grabber. Grabber-v4l2 section will not be added to the config file."
-                if center_corner is not None:
+                if center_corner is None:
                     xbmcgui.Dialog().ok(addonname, message)
                 else:
                     #webseite
                     xbmc.log("Lightymon:" + message, level=xbmc.LOGNOTICE)
                     return message
-        if center_corner is not None:
+        if center_corner is None:
             xbmcgui.Dialog().ok(addonname, "That's all! Now we will attempt to restart hyperion...")
         else:
             #webseite
@@ -220,7 +220,7 @@ def myfunction(device, ledh, ledv, direction, center_corner = None):
         hyperion_configuration.save_config_file(hyperion_configuration.create_config(),new_hyperion_config_path)
         hyperion_configuration.restart_hyperion(new_hyperion_config_path)
 
-        if center_corner is not None:
+        if center_corner is None:
             if not xbmcgui.Dialog().yesno(addonname, "Have you seen the rainbow swirl? (sometimes it does not appear, if you're sure that correct led type is selected, answer YES anyway, save config as default and reboot)"):
                 xbmcgui.Dialog().ok(addonname, "Something went wrong... Please try running hyperion from command line to see the error... ("+run_command+")")
                 sys.exit()
