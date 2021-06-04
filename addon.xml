@@ -7,7 +7,6 @@
 	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
 	</extension>
-	<extension point="xbmc.python.module" library="resources" />
 	<extension point="xbmc.addon.metadata">
 		<platform>linux</platform>
 		<summary lang="en">Hyperion configuration wizard for Lightymon</summary>
