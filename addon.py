@@ -100,7 +100,7 @@ def myfunction(device = None, ledh = None, ledv = None, direction = None, center
                 device_versions = [ HyperPyCon.HyperPyCon.adalightapa102 , HyperPyCon.HyperPyCon.adalight,  HyperPyCon.HyperPyCon.ws2801, HyperPyCon.HyperPyCon.apa102, HyperPyCon.HyperPyCon.lightymonXL]
             selected_device = xbmcgui.Dialog().select("Select your led device:",device_versions)
         else:
-            selected_device = device
+            selected_device = sys.argv[0]
         if selected_device == -1:
             sys.exit();
         if selected_device == 2 or selected_device == 3:
@@ -139,8 +139,8 @@ def myfunction(device = None, ledh = None, ledv = None, direction = None, center
         #  except Exception, e:
         #      xbmcgui.Dialog().ok(addonname, repr(e),"Couldnt download the settings - Setup will use default.")
         else:
-            nol_horizontal = ledh
-            nol_vertical = ledv
+            nol_horizontal = sys.argv[1]
+            nol_vertical = sys.argv[2]
         hyperion_configuration = HyperPyCon.HyperPyCon(int(nol_horizontal), int(nol_vertical), 0.08, 0.1) #parameter from plugin settings to be added
         hyperion_configuration.set_device_type(device_versions[selected_device])
         hyperion_configuration.set_device_rate(int(addon.getSetting("rate")))
@@ -160,7 +160,7 @@ def myfunction(device = None, ledh = None, ledv = None, direction = None, center
             options = ["Right/bottom corner and goes up","Left/bottom corner and goes up","Center/bottom and goes right","Center/bottom and goes left"]
             selected_index = xbmcgui.Dialog().select("Select where the led chain starts:",options)
         else:
-            selected_index = direction
+            selected_index = sys.argv[3]
         if selected_index == 1:
             hyperion_configuration.led_chain.reverse_direction()
             hyperion_configuration.led_chain.set_offset(int(nol_horizontal))
@@ -168,7 +168,7 @@ def myfunction(device = None, ledh = None, ledv = None, direction = None, center
             if center_corner is None:
                 offset = xbmcgui.Dialog().input("How many leds from the center to the corner or the screen?","15",xbmcgui.INPUT_NUMERIC)
             else:
-                offset = center_corner
+                offset = sys.argv[4]
             if selected_index == 2:
                 hyperion_configuration.led_chain.set_offset((-1)*int(offset))
             else:
@@ -249,4 +249,8 @@ def myfunction(device = None, ledh = None, ledv = None, direction = None, center
      
     except Exception as e:
             xbmcgui.Dialog().ok(addonname, repr(e),"Please report an error at github issue list")
-myfunction()
+
+if len(sys.argv) is None:
+    myfunction()
+else:
+    myfunction(sys.argv[0],sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])

@@ -9,3 +9,4 @@
 1.0.8 exported flask to own plugin
 1.0.9 Function implemented + corrected
 1.0.10 Icon redesigned + xml modified
+1.0.11 Function modified
